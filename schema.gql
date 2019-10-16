@@ -16,11 +16,31 @@ type CatType {
   breed: String!
 }
 
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+type GameDto {
+  id: ID!
+  startTime: DateTime!
+  endTime: DateTime
+  numPlayers: Int!
+}
+
+input GameInput {
+  startTime: DateTime
+  endTime: DateTime
+  numPlayers: Int!
+}
+
 type Mutation {
   createCat(input: CatInput!): CatType!
+  createGame(input: GameInput!): GameDto!
 }
 
 type Query {
   hello: String!
   cats: [CatType!]!
+  games: [GameDto!]!
 }
