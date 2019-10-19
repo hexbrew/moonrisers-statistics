@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args } from "@nestjs/graphql";
 import { GameService } from "./game.service";
-import { GameDto } from "./dto/game.dto";
+import { Game } from "./dto/game.dto";
 import { GameInput } from "./inputs/game.input";
 
 @Resolver()
@@ -12,12 +12,13 @@ export class GameResolver {
     return this.gameService.findAll()
   }
 
+  @Query(() => [GameDto])
+  async gamesBeforeDate(@Args('input') date: Date) {
+    return this.gameService.find({ startTime: { $lte: date }});
+  }
+
   @Mutation(() => GameDto)
   async createGame(@Args('input') input: GameInput) {
-    // if(!input.startTime) {
-    //   input.startTime = new Date();
-    // }
-
     return this.gameService.create(input)
   }
 }

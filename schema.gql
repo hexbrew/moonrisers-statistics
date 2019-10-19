@@ -38,4 +38,5 @@ input PlayerInput {
 type Query {
   players: [PlayerDto!]!
   games: [GameDto!]!
+  gamesBeforeDate(input: DateTime!): [GameDto!]!
 }

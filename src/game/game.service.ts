@@ -19,6 +19,10 @@ export class GameService {
     return await createdGame.save();
   }
 
+  async find(options): Promise<Game> {
+    return await this.gameModel.find(options).exec();
+  }
+
   async findAll(): Promise<Game> {
     return await this.gameModel.find().exec();
   }

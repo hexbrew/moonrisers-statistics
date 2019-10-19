@@ -1,7 +1,7 @@
 import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
-export class PlayerDto {
+export class Player {
   @Field(() => ID)
   id: string;
   @Field()
