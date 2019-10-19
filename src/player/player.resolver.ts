@@ -7,12 +7,12 @@ import { PlayerInput } from "./inputs/player.input";
 export class PlayerResolver {
   constructor(private readonly playerService: PlayerService) {}
 
-  @Query(() => [PlayerDto])
+  @Query(() => [Player])
   async players() {
-    return this.playerService.findAll()
+    return this.playerService.findMany()
   }
 
-  @Mutation(() => PlayerDto)
+  @Mutation(() => Player)
   async createPlayer(@Args('input') input: PlayerInput) {
     return this.playerService.create(input)
   }

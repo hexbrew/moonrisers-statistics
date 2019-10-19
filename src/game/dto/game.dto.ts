@@ -1,14 +1,14 @@
 import { ObjectType, Field, Int, ID } from "type-graphql";
-import 
+import { Player } from "../../player/dto/player.dto";
 
 @ObjectType()
 export class Game {
   @Field(() => ID)
   id: string;
   @Field()
-  readonly startTime: Date;
+  startTime: Date;
   @Field({ nullable: true })
-  readonly endTime: Date;
-  @Field(() => Int)
-  readonly numPlayers: number;
+  endTime: Date;
+  @Field(() => [Player], { defaultValue: [] })
+  players: Player[];
 }

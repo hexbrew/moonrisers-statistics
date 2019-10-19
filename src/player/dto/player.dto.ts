@@ -5,5 +5,5 @@ export class Player {
   @Field(() => ID)
   id: string;
   @Field()
-  readonly username: string;
+  username: string;
 }

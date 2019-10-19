@@ -13,7 +13,11 @@ export class PlayerService {
     return await createdPlayer.save();
   }
 
-  async findAll(): Promise<Player> {
-    return await this.playerModel.find().exec();
+  async findOne(options?): Promise<Player> {
+    return await this.playerModel.find(options).exec();
+  }
+
+  async findMany(options?): Promise<Player[]> {
+    return await this.playerModel.find(options).exec();
   }
 }

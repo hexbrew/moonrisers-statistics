@@ -1,7 +1,8 @@
 import { Document } from "mongoose";
+import { Player } from "../../player/interfaces/player.interface";
 
 export interface Game extends Document {
-  readonly startTime: Date;
-  readonly endTime: Date;
-  readonly numPlayers: number;
+  startTime: Date;
+  endTime: Date;
+  players: [Player];
 }
