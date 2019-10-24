@@ -1,5 +1,4 @@
-import { ObjectType, Field, Int, ID } from "type-graphql";
-import { Player } from "../../player/dto/player.dto";
+import { ObjectType, Field, ID, Int } from "type-graphql";
 
 @ObjectType()
 export class Game {
@@ -9,6 +8,8 @@ export class Game {
   startTime: Date;
   @Field({ nullable: true })
   endTime: Date;
-  @Field(() => [Player], { defaultValue: [] })
-  players: Player[];
+  @Field(() => Int, { defaultValue: 0 })
+  stayPresses: number;
+  @Field(() => Int, { defaultValue: 0 })
+  leavePresses: number;
 }

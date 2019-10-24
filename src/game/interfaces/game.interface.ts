@@ -1,8 +1,8 @@
-import { Document } from "mongoose";
-import { Player } from "../../player/interfaces/player.interface";
+import { Document, Ty } from "mongoose";
 
 export interface Game extends Document {
   startTime: Date;
   endTime: Date;
-  players: [Player];
+  stayPresses: number;
+  leavePresses: number;
 }
