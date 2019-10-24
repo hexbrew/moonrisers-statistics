@@ -12,7 +12,7 @@ export class GameResolver {
     return this.gameService.findMany();
   }
 
-  @Query(() => [Game])
+  @Query(() => Game)
   async lastGame() {
     return this.gameService.findOneWithSort({}, { endTime: -1 });
   }

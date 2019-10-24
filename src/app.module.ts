@@ -3,12 +3,10 @@ import { GraphQLModule } from "@nestjs/graphql";
 import { MongooseModule } from "@nestjs/mongoose";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { PlayerModule } from "./player/player.module";
 import { GameModule } from "./game/game.module";
 
 @Module({
   imports: [
-    PlayerModule,
     GameModule,
     GraphQLModule.forRoot({
       autoSchemaFile: "schema.gql"

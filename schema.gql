@@ -12,31 +12,23 @@ type Game {
   id: ID!
   startTime: DateTime!
   endTime: DateTime
-  players: [Player!]
+  stayPresses: Int
+  leavePresses: Int
 }
 
 input GameInput {
   startTime: DateTime
   endTime: DateTime
+  stayPresses: Int
+  leavePresses: Int
 }
 
 type Mutation {
-  createPlayer(input: PlayerInput!): Player!
   createGame(input: GameInput!): Game!
-  addPlayers(playerIDs: [String!]!, gameID: String!): Game!
-}
-
-type Player {
-  id: ID!
-  username: String!
-}
-
-input PlayerInput {
-  username: String!
 }
 
 type Query {
-  players: [Player!]!
   games: [Game!]!
+  lastGame: Game!
   gamesBeforeDate(date: DateTime!): [Game!]!
 }
